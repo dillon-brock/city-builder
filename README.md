@@ -1,3 +1,7 @@
+## Wireframe:
+
+![Wireframe](/assets/citybuilder_wireframe.png)
+
 ## The Golden Rule:
 
 🦸 🦸‍♂️ `Stop starting and start finishing.` 🏁
