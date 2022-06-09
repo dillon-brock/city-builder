@@ -10,8 +10,6 @@ let city = {
 
 const cities = [];
 
-let displayingFirstSlogan = false;
-
 // components
     // component
     // define and grab DOM elements
@@ -69,9 +67,9 @@ function displayCity() {
     sloganDisplay.textContent = city.slogans[0];
 }
 
-const [addSlogan, addCity] = designerSection.querySelectorAll('button');
+const [addSloganButton, addCityButton] = designerSection.querySelectorAll('button');
 
-addSlogan.addEventListener('click', () => {
+addSloganButton.addEventListener('click', () => {
     if (sloganInput.value !== '') {
         city.slogans.push(sloganInput.value);
     }
@@ -86,19 +84,20 @@ function displaySlogans() {
 
     sloganList.innerHTML = '';
 
-    if (!displayingFirstSlogan) {
-        sloganDisplay.textContent = city.slogans[0];
-        displayingFirstSlogan = true;
-    }
+    let mainSlogan = city.slogans[0];
+
+    sloganDisplay.textContent = city.slogans[0];
+    city.slogans.shift();
 
     for (const slogan of city.slogans) {
-        if (city.slogans.indexOf(slogan) > 0) {
-            let li = document.createElement('li');
-            li.textContent = slogan;
-            sloganList.append(li);
-        }
+        let li = document.createElement('li');
+        li.textContent = slogan;
+        sloganList.append(li);
     }
+
+    city.slogans.unshift(mainSlogan);
 }
+
 
 
 
