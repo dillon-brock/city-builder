@@ -46,7 +46,6 @@ nameInput.addEventListener('input', () => {
 environmentSelect.addEventListener('change', () => {
     city.environment = environmentSelect.value;
     citySection.classList.value = '';
-    citySection.classList.add(environmentSelect.value);
     displayCity();
 });
 
@@ -54,18 +53,9 @@ architectureSelect.addEventListener('change', () => {
     city.architecture = architectureSelect.value;
     nameDisplay.classList.value = '';
     sloganDisplay.classList.value = '';
-    nameDisplay.classList.add(architectureSelect.value);
-    sloganDisplay.classList.add(architectureSelect.value);
+    sloganSection.classList.value = '';
     displayCity();
 });
-
-
-function displayCity() {
-    nameDisplay.textContent = city.name;
-    environmentDisplay.src = `./assets/${city.environment}.png`;
-    architectureDisplay.src = `./assets/${city.architecture}.png`;
-    sloganDisplay.textContent = city.slogans[0];
-}
 
 const [addSloganButton, addCityButton] = designerSection.querySelectorAll('button');
 
@@ -86,7 +76,7 @@ function displaySlogans() {
 
     let mainSlogan = city.slogans[0];
 
-    sloganDisplay.textContent = city.slogans[0];
+    sloganDisplay.textContent = mainSlogan;
     city.slogans.shift();
 
     for (const slogan of city.slogans) {
@@ -98,10 +88,48 @@ function displaySlogans() {
     city.slogans.unshift(mainSlogan);
 }
 
+function displayCity() {
+    nameDisplay.textContent = city.name;
+    environmentDisplay.src = `./assets/${city.environment}.png`;
+    architectureDisplay.src = `./assets/${city.architecture}.png`;
+    sloganDisplay.textContent = city.slogans[0];
+    nameDisplay.classList.add(architectureSelect.value);
+    sloganDisplay.classList.add(architectureSelect.value);
+    citySection.classList.add(environmentSelect.value);
+    sloganSection.classList.add(architectureSelect.value);
+}
 
+addCityButton.addEventListener('click', () => {
+    cities.push(city);
+    displayCities();
+    city = getDefaultCity();
+});
 
+const citiesSection = document.getElementById('cities-section');
+const cityTable = citiesSection.querySelector('tbody');
 
+function displayCities() {
+    cityTable.innerHTML = '';
+    for (city of cities) {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+        <td>${city.name}</td>
+        <td>${city.environment}</td>
+        <td>${city.architecture}</td>
+        <td>${city.slogans.length}</td>`;
+        cityTable.append(tr);
+    }
+}
 
+function getDefaultCity() {
+    const defaultCity = {
+        name: 'Moon Landing',
+        environment: 'polar',
+        architecture: 'art deco',
+        slogans: []
+    }
+    return defaultCity;
+}
 
 // page load actions
 displayDesigner();
