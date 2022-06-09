@@ -161,7 +161,7 @@ function getCityById(idNum) {
         name,
         environment,
         architecture,
-        slogans
+        slogans: [...slogans]
     };
     return storedCity;
 }

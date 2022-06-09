@@ -1,5 +1,8 @@
 /* add css for index.html */
 @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Padauk&display=swap');
 
 #designer-section {
     display: flex;
@@ -15,6 +18,18 @@ input, select, textarea {
 
 }
 
+h2 {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 2.25rem;
+}
+
+p {
+    text-align: center;
+    font-size: 1.25rem;
+}
+
 button {
     margin-top: 0px;
     margin-bottom: 50px;
@@ -22,29 +37,48 @@ button {
 
 #city-section {
     margin: 0 auto;
-    height: 360px;
+    height: 420px;
     width: 40%;
     margin-top: 20px;
     margin-bottom: 30px;
+    border-radius: 30px;
 }
 
 #city-image-container {
     margin: 0 auto;
     width: 80%;
     height: 200px;
-    position: relative;
-    top: 50px;
     display: flex;
-    gap: 20px;
+    justify-content: space-around;
+}
+
+#city-image-container img {
+    /* border-radius: 50%; */
+    width: 40%;
+    /* height: auto; */
+}
+
+#slogan-section {
+    text-align: center;
+}
+
+h3 {
+    font-size: 1.75rem;
+    text-align: center;
+}
+
+#slogan-section ul {
+    font-size: 1.25rem;
+}
+
+#cities-section h3 {
+    margin-top: 60px;
 }
 
 table {
-    margin: 60px auto;
-    border: 1px solid black;
-}
-
-thead {
-    border: 1px solid black;
+    margin: 20px auto 60px auto;
+    border: 5px solid black;
+    text-align: center;
 }
 
 td {
@@ -54,41 +88,43 @@ td {
 /* environment classes */
 .polar {
     background-color: lightblue;
-    border: 4px solid darkblue;
-    color: gold
+    border: 15px solid rgb(26, 38, 55);
+    color: darkblue;
 }
 
 .desert {
-    background-color: goldenrod;
-    border: 4px solid skyblue;
-    color: black;
+    background-color: rgb(186, 100, 46);
+    border: 15px solid rgb(1, 64, 116);
+    color: rgb(235, 187, 142);
 }
 
 .mountains {
-    background-color: antiquewhite;
-    border: 4px solid brown;
+    background-color: rgb(146, 193, 128);
+    border: 15px solid brown;
     color: darkgreen;
 }
 
 .tropical {
-    background-color: rgb(133, 222, 0);
-    border: 4px solid darkgreen;
-    color: darkgoldenrod;
+    /* background-color: #BC8E2C; */
+    background-color: #FF5633;
+    /* border: 4px solid #FF5633; */
+    border: 15px solid #BC8E2C;
+    color: #91CBC4;
 }
 
 /* architecture classes */
 .gothic {
-    font-family: cursive;
+    font-family: 'Cinzel Decorative';
 }
 
 .deco {
-    font-family: sans-serif;
+    font-family: 'Concert One';
 }
 
 .beaux {
-    font-family: serif;
+    font-family: 'Noto Serif';
 }
 
 .modern {
-    font-family: 'Cinzel Decorative';
+    font-family: 'Padauk';
 }
