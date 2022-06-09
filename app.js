@@ -45,6 +45,16 @@ function displayCity() {
     sloganDisplay.textContent = city.slogans[0];
 }
 
+const [addSlogan, addCity] = designerSection.querySelectorAll('button');
+
+addSlogan.addEventListener('click', () => {
+    if (sloganInput.value !== '') {
+        city.slogans.push(sloganInput.value);
+    }
+});
+
+
+
 // page load actions
 displayDesigner();
 displayCity();

@@ -15,6 +15,11 @@ input, select, textarea {
 
 }
 
+button {
+    margin-top: 0px;
+    margin-bottom: 50px;
+}
+
 #city-section {
     margin: 0 auto;
     height: 360px;
