@@ -10,6 +10,8 @@ let city = {
 
 const cities = [];
 
+let displayingFirstSlogan = false;
+
 // components
     // component
     // define and grab DOM elements
@@ -51,7 +53,33 @@ addSlogan.addEventListener('click', () => {
     if (sloganInput.value !== '') {
         city.slogans.push(sloganInput.value);
     }
+    displaySlogans();
+    sloganInput.value = '';
 });
+
+
+
+
+const sloganSection = document.getElementById('slogan-section');
+const sloganList = sloganSection.querySelector('ul');
+
+function displaySlogans() {
+
+    sloganList.innerHTML = '';
+
+    if (!displayingFirstSlogan) {
+        sloganDisplay.textContent = city.slogans[0];
+        displayingFirstSlogan = true;
+    }
+
+    for (const slogan of city.slogans) {
+        if (city.slogans.indexOf(slogan) > 0) {
+            let li = document.createElement('li');
+            li.textContent = slogan;
+            sloganList.append(li);
+        }
+    }
+}
 
 
 
