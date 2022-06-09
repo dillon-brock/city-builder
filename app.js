@@ -64,13 +64,18 @@ addSloganButton.addEventListener('click', () => {
     sloganInput.value = '';
 });
 
+clearSlogansButton.addEventListener('click', () => {
+    city.slogans = [];
+    displaySlogans();
+});
+
 const sloganSection = document.getElementById('slogan-section');
 const sloganList = sloganSection.querySelector('ul');
 
 function displaySlogans() {
 
     sloganList.innerHTML = '';
-
+    
     if (city.slogans.length > 0) {
         let mainSlogan = city.slogans[0];
         sloganDisplay.textContent = mainSlogan;
@@ -83,6 +88,9 @@ function displaySlogans() {
         }
 
         city.slogans.unshift(mainSlogan);
+    }
+    else {
+        sloganDisplay.textContent = '';
     }
 
 }
