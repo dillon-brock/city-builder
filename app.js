@@ -45,15 +45,12 @@ nameInput.addEventListener('input', () => {
 
 environmentSelect.addEventListener('change', () => {
     city.environment = environmentSelect.value;
-    citySection.classList.value = '';
     displayCity();
 });
 
 architectureSelect.addEventListener('change', () => {
     city.architecture = architectureSelect.value;
-    nameDisplay.classList.value = '';
-    sloganDisplay.classList.value = '';
-    sloganSection.classList.value = '';
+    
     displayCity();
 });
 
@@ -89,6 +86,12 @@ function displaySlogans() {
 }
 
 function displayCity() {
+    
+    nameDisplay.classList.value = '';
+    sloganDisplay.classList.value = '';
+    sloganSection.classList.value = '';
+    citySection.classList.value = '';
+
     nameDisplay.textContent = city.name;
     environmentDisplay.src = `./assets/${city.environment}.png`;
     architectureDisplay.src = `./assets/${city.architecture}.png`;
@@ -102,7 +105,10 @@ function displayCity() {
 addCityButton.addEventListener('click', () => {
     cities.push(city);
     displayCities();
+
     city = getDefaultCity();
+    displayDesigner();
+    displayCity();
 });
 
 const citiesSection = document.getElementById('cities-section');
@@ -125,9 +131,9 @@ function getDefaultCity() {
     const defaultCity = {
         name: 'Moon Landing',
         environment: 'polar',
-        architecture: 'art deco',
+        architecture: 'deco',
         slogans: []
-    }
+    };
     return defaultCity;
 }
 
