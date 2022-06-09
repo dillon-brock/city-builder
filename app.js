@@ -54,7 +54,7 @@ architectureSelect.addEventListener('change', () => {
     displayCity();
 });
 
-const [addSloganButton, addCityButton] = designerSection.querySelectorAll('button');
+const [addSloganButton, addCityButton, clearSlogansButton] = document.querySelectorAll('button');
 
 addSloganButton.addEventListener('click', () => {
     if (sloganInput.value !== '') {
@@ -94,6 +94,10 @@ function displayCity() {
     sloganSection.classList.value = '';
     citySection.classList.value = '';
 
+    addSloganButton.classList.value = '';
+    addCityButton.classList.value = '';
+    clearSlogansButton.classList.value = '';
+
     nameDisplay.textContent = city.name;
     environmentDisplay.src = `./assets/${city.environment}.png`;
     architectureDisplay.src = `./assets/${city.architecture}.png`;
@@ -102,6 +106,12 @@ function displayCity() {
     sloganDisplay.classList.add(architectureSelect.value);
     citySection.classList.add(environmentSelect.value);
     sloganSection.classList.add(architectureSelect.value);
+
+    addSloganButton.classList.add(environmentSelect.value);
+    addCityButton.classList.add(environmentSelect.value);
+    clearSlogansButton.classList.add(environmentSelect.value);
+
+
 
     displaySlogans();
 }
@@ -139,7 +149,7 @@ function displayCities() {
         <td>${city.environment}</td>
         <td>${city.architecture}</td>
         <td>${city.slogans.length}</td>
-        <td><button id=${idNum}>Load City</button></td>`;
+        <td><button id=${idNum} class=${city.environment}>Load City</button></td>`;
         cityTable.append(tr);
         idNum++;
     }

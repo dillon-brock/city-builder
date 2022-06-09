@@ -32,7 +32,10 @@ p {
 
 button {
     margin-top: 0px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
+    padding: 10px;
+    border-width: 3px !important;
+    border-radius: 10px;
 }
 
 #city-section {
@@ -69,6 +72,11 @@ h3 {
 
 #slogan-section ul {
     font-size: 1.25rem;
+}
+
+#reset {
+    display: flex;
+    justify-content: center;
 }
 
 #cities-section h3 {
