@@ -2,7 +2,7 @@
 
 // state
 let city = {
-    name: 'Moon Landing',
+    name: 'North Pole',
     environment: 'polar',
     architecture: 'deco',
     slogans: []
@@ -71,22 +71,24 @@ function displaySlogans() {
 
     sloganList.innerHTML = '';
 
-    let mainSlogan = city.slogans[0];
+    if (city.slogans.length > 0) {
+        let mainSlogan = city.slogans[0];
+        sloganDisplay.textContent = mainSlogan;
+        city.slogans.shift();
 
-    sloganDisplay.textContent = mainSlogan;
-    city.slogans.shift();
+        for (const slogan of city.slogans) {
+            let li = document.createElement('li');
+            li.textContent = slogan;
+            sloganList.append(li);
+        }
 
-    for (const slogan of city.slogans) {
-        let li = document.createElement('li');
-        li.textContent = slogan;
-        sloganList.append(li);
+        city.slogans.unshift(mainSlogan);
     }
 
-    city.slogans.unshift(mainSlogan);
 }
 
 function displayCity() {
-    
+
     nameDisplay.classList.value = '';
     sloganDisplay.classList.value = '';
     sloganSection.classList.value = '';
@@ -100,6 +102,8 @@ function displayCity() {
     sloganDisplay.classList.add(architectureSelect.value);
     citySection.classList.add(environmentSelect.value);
     sloganSection.classList.add(architectureSelect.value);
+
+    displaySlogans();
 }
 
 addCityButton.addEventListener('click', () => {
@@ -109,6 +113,17 @@ addCityButton.addEventListener('click', () => {
     city = getDefaultCity();
     displayDesigner();
     displayCity();
+
+    const loadButtons = cityTable.querySelectorAll('button');
+
+    loadButtons.forEach(loadButton => {
+        loadButton.addEventListener('click', () => {
+            city = getCityById(loadButton.id);
+            displayDesigner();
+            displayCity();
+        });
+    });
+
 });
 
 const citiesSection = document.getElementById('cities-section');
@@ -116,25 +131,39 @@ const cityTable = citiesSection.querySelector('tbody');
 
 function displayCities() {
     cityTable.innerHTML = '';
+    let idNum = 0;
     for (city of cities) {
         const tr = document.createElement('tr');
         tr.innerHTML = `
         <td>${city.name}</td>
         <td>${city.environment}</td>
         <td>${city.architecture}</td>
-        <td>${city.slogans.length}</td>`;
+        <td>${city.slogans.length}</td>
+        <td><button id=${idNum}>Load City</button></td>`;
         cityTable.append(tr);
+        idNum++;
     }
 }
 
 function getDefaultCity() {
     const defaultCity = {
-        name: 'Moon Landing',
+        name: 'North Pole',
         environment: 'polar',
         architecture: 'deco',
         slogans: []
     };
     return defaultCity;
+}
+
+function getCityById(idNum) {
+    const { name, environment, architecture, slogans } = cities[idNum];
+    const storedCity = {
+        name,
+        environment,
+        architecture,
+        slogans
+    };
+    return storedCity;
 }
 
 // page load actions
