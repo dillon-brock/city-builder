@@ -28,6 +28,11 @@ const nameInput = designerSection.querySelector('input');
 const [environmentSelect, architectureSelect] = designerSection.querySelectorAll('select');
 const sloganInput = designerSection.querySelector('textarea');
 
+const citySection = document.getElementById('city-section');
+const nameDisplay = citySection.querySelector('h2');
+const [environmentDisplay, architectureDisplay] = citySection.querySelectorAll('img');
+const sloganDisplay = citySection.querySelector('p');
+
 function displayDesigner() {
     nameInput.value = city.name;
     environmentSelect.value = city.environment;
@@ -35,10 +40,27 @@ function displayDesigner() {
     sloganInput.value = '';
 }
 
-const citySection = document.getElementById('city-section');
-const nameDisplay = citySection.querySelector('h2');
-const [environmentDisplay, architectureDisplay] = citySection.querySelectorAll('img');
-const sloganDisplay = citySection.querySelector('p');
+nameInput.addEventListener('input', () => {
+    city.name = nameInput.value;
+    displayCity();
+});
+
+environmentSelect.addEventListener('change', () => {
+    city.environment = environmentSelect.value;
+    citySection.classList.value = '';
+    citySection.classList.add(environmentSelect.value);
+    displayCity();
+});
+
+architectureSelect.addEventListener('change', () => {
+    city.architecture = architectureSelect.value;
+    nameDisplay.classList.value = '';
+    sloganDisplay.classList.value = '';
+    nameDisplay.classList.add(architectureSelect.value);
+    sloganDisplay.classList.add(architectureSelect.value);
+    displayCity();
+});
+
 
 function displayCity() {
     nameDisplay.textContent = city.name;
@@ -56,9 +78,6 @@ addSlogan.addEventListener('click', () => {
     displaySlogans();
     sloganInput.value = '';
 });
-
-
-
 
 const sloganSection = document.getElementById('slogan-section');
 const sloganList = sloganSection.querySelector('ul');
@@ -80,6 +99,8 @@ function displaySlogans() {
         }
     }
 }
+
+
 
 
 
