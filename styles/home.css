@@ -57,6 +57,7 @@ button {
 
 #city-image-container img {
     width: 40%;
+    object-fit: contain;
 }
 
 #slogan-section {
@@ -133,4 +134,36 @@ td {
 
 .modern {
     font-family: 'Padauk';
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+button.polar:active {
+    background-color: rgb(56, 112, 131);
+}
+
+button.desert:active {
+    background-color: rgb(133, 60, 15);
+}
+
+button.mountains:active {
+    background-color: rgb(109, 134, 99);
+}
+
+button.tropical:active {
+    background-color: #94301c;
+
+}
+
+@media only screen and (max-width: 840px) {
+    #city-image-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 10%;
+    }
+    #city-image-container img{
+        width: 110px;
+    }
 }
