@@ -78,6 +78,10 @@ h3 {
     justify-content: center;
 }
 
+#reset button {
+    margin-top: 20px;
+}
+
 #cities-section h3 {
     margin-top: 60px;
 }
