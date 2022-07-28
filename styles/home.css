@@ -1,1 +1,173 @@
 /* add css for index.html */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Padauk&display=swap');
+
+#designer-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input, select, textarea {
+    width: 30%;
+    padding: 8px;
+    margin-top: 10px;
+    margin-bottom: 24px; 
+
+}
+
+h2 {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 2.25rem;
+}
+
+p {
+    text-align: center;
+    font-size: 1.25rem;
+}
+
+button {
+    margin-top: 0px;
+    margin-bottom: 30px;
+    padding: 10px;
+    border-width: 3px !important;
+    border-radius: 10px;
+}
+
+#city-section {
+    margin: 0 auto;
+    height: 420px;
+    width: 40%;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    border-radius: 30px;
+}
+
+#city-image-container {
+    margin: 0 auto;
+    width: 80%;
+    height: 200px;
+    display: flex;
+    justify-content: space-around;
+}
+
+#city-image-container img {
+    width: 40%;
+    object-fit: contain;
+}
+
+#slogan-section {
+    text-align: center;
+}
+
+h3 {
+    font-size: 1.75rem;
+    text-align: center;
+}
+
+#slogan-section ul {
+    font-size: 1.25rem;
+}
+
+#reset {
+    display: flex;
+    justify-content: center;
+}
+
+#reset button {
+    margin-top: 20px;
+}
+
+#cities-section h3 {
+    margin-top: 60px;
+}
+
+table {
+    margin: 20px auto 60px auto;
+    border: 5px solid black;
+    text-align: center;
+}
+
+td {
+    padding: 10px;
+}
+
+/* environment classes */
+.polar {
+    background-color: lightblue;
+    border: 15px solid rgb(26, 38, 55);
+    color: darkblue;
+}
+
+.desert {
+    background-color: rgb(186, 100, 46);
+    border: 15px solid rgb(1, 64, 116);
+    color: rgb(235, 187, 142);
+}
+
+.mountains {
+    background-color: rgb(146, 193, 128);
+    border: 15px solid brown;
+    color: darkgreen;
+}
+
+.tropical {
+    /* background-color: #BC8E2C; */
+    background-color: #FF5633;
+    /* border: 4px solid #FF5633; */
+    border: 15px solid #BC8E2C;
+    color: #91CBC4;
+}
+
+/* architecture classes */
+.gothic {
+    font-family: 'Cinzel Decorative';
+}
+
+.deco {
+    font-family: 'Concert One';
+}
+
+.beaux {
+    font-family: 'Noto Serif';
+}
+
+.modern {
+    font-family: 'Padauk';
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+button.polar:active {
+    background-color: rgb(56, 112, 131);
+}
+
+button.desert:active {
+    background-color: rgb(133, 60, 15);
+}
+
+button.mountains:active {
+    background-color: rgb(109, 134, 99);
+}
+
+button.tropical:active {
+    background-color: #94301c;
+
+}
+
+@media only screen and (max-width: 840px) {
+    #city-image-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 10%;
+    }
+    #city-image-container img{
+        width: 110px;
+    }
+}

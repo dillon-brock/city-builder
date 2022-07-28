@@ -1,3 +1,75 @@
+## Wireframe:
+
+![Wireframe](/assets/CB-wireframe.png)
+
+## States Master List:
+- city object (name, environment, architecture, and slogans keys)
+- cities array (contains list of saved city objects)
+
+## States/Events:
+
+### Designer Component:
+
+States:
+- city.name
+- city.environment
+- city.architecture
+- city.slogans
+- cities array
+
+Events:
+- Name 'input' event on input
+    - changes value of city.name
+    - displays city.name
+
+- Environment select event on 'change
+    - sets value of city.environment
+    - displays theme according to value of city.environment
+    - changes image according to value of city.environment
+
+- architecture select event on 'change'
+    - sets value of city.architecture
+    - changes font family in city display according to value of city.architecture
+    - changes image according to value of city.architecture
+
+- add slogan button event on 'click'
+    - adds current value of slogan textarea to city.slogans array
+    - displays added slogan in slogan list
+
+- add city button event on 'click'
+    - adds current state of city object to cities array
+    - displays added city and corresponding load city button in city list component
+
+## City Display Component
+States:
+- each key value pair in city object corresponds to aspect of display
+    - city.name corresponds to city name display
+    - city.environment corresponds to theme
+    - city.architecture corresponds to font
+    - city.slogans[0] corresponds to slogan displayed in the city display component
+
+## Slogan Display Component
+States:
+- city.slogans (all elements with index > 0)
+
+Events:
+- clear slogans button event on 'click'
+    - sets city.slogans equal to an empty array
+    - removes display of previous slogans
+
+## City List Component
+States:
+- cities array (each city displayed in the order they are indexed in the array)
+
+Events:
+- load city button event on 'click'
+    - loads corresponding data into city object
+    - displays loaded city and corresponding slogans
+
+## On Page Load:
+- display default city
+- set designer elements values to correspond with the values of the default city object
+
 ## The Golden Rule:
 
 🦸 🦸‍♂️ `Stop starting and start finishing.` 🏁
